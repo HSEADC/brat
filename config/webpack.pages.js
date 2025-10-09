@@ -9,14 +9,47 @@ function createPage(template, filename) {
 
 const htmlPages = [
   createPage("./src/index.html", "./index.html"),
-  createPage("./src/pages/articles.html", "./pages/articles.html"),
-  createPage("./src/pages/tests.html", "./pages/tests.html"),
-  createPage("./src/pages/dictionary.html", "./pages/dictionary.html"),
+  createPage("./src/pages/404.html", "./pages/404.html"),
+  createPage("./src/pages/about.html", "./pages/about.html"),
+  createPage("./src/pages/chronology.html", "./pages/chronology.html"),
+  createPage("./src/pages/collections.html", "./pages/collections.html"),
+  createPage("./src/pages/exposition.html", "./pages/exposition.html"),
+  createPage("./src/pages/gallery.html", "./pages/gallery.html"),
+  createPage("./src/pages/interview.html", "./pages/interview.html"),
+  createPage("./src/pages/promo.html", "./pages/promo.html"),
+  createPage("./src/pages/team.html", "./pages/team.html"),
   createPage(
-    "./src/pages/articles/article1.html",
-    "./pages/articles/article1.html"
+    "./src/pages/chronologies/chrono_00.html",
+    "./pages/chronologies/chrono_00.html"
   ),
-  createPage("./src/pages/tests/test1.html", "./pages/tests/test1.html"),
+  createPage(
+    "./src/pages/chronologies/chrono_80.html",
+    "./pages/chronologies/chrono_80.html"
+  ),
+  createPage(
+    "./src/pages/chronologies/chrono_90.html",
+    "./pages/chronologies/chrono_90.html"
+  ),
+  createPage(
+    "./src/pages/exspositions/home_technolohies.html",
+    "./pages/exspositions/home_technolohies.html"
+  ),
+  createPage(
+    "./src/pages/exspositions/media.html",
+    "./pages/exspositions/media.html"
+  ),
+  createPage(
+    "./src/pages/exspositions/profession.html",
+    "./pages/exspositions/profession.html"
+  ),
+  createPage(
+    "./src/pages/exspositions/urban_space.html",
+    "./pages/exspositions/urban_space.html"
+  ),
+  createPage(
+    "./src/pages/interviews/interview_1.html",
+    "./pages/interviews/interview_1.html"
+  ),
 ];
 
 module.exports = htmlPages;
