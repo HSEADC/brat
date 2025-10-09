@@ -13,7 +13,7 @@ const htmlPages = [
   createPage("./src/pages/about.html", "./pages/about.html"),
   createPage("./src/pages/chronology.html", "./pages/chronology.html"),
   createPage("./src/pages/collections.html", "./pages/collections.html"),
-  createPage("./src/pages/exposition.html", "./pages/exposition.html"),
+  createPage("./src/pages/exsposition.html", "./pages/exposition.html"),
   createPage("./src/pages/gallery.html", "./pages/gallery.html"),
   createPage("./src/pages/interview.html", "./pages/interview.html"),
   createPage("./src/pages/promo.html", "./pages/promo.html"),
