@@ -9,7 +9,7 @@ body {
 #plugWrapper,
 #promoWrapper,
 #aboutWrapper {
-  background: url(../images/plug_background.jpg);
+  background: url(../images/plug_background.webp);
   width: 1400rem;
   height: 96vh;
   border-radius: 30rem;
@@ -264,7 +264,7 @@ body {
   }
 }
 #promoWrapper {
-  background: url(../images/promo_background.jpg);
+  background: url(../images/promo_background.webp);
 }
 #wrapper .infoContainer .promoTitle {
   line-height: 0.8;
@@ -387,7 +387,7 @@ footer,
 .fragmentBlock {
   margin: 20rem;
   height: 80vh;
-  background: url(../images/plug_background.jpg);
+  background: url(../images/plug_background.webp);
   border-radius: 30rem;
   display: flex;
   flex-direction: column;
@@ -563,7 +563,7 @@ footer .hseBlock {
   margin-top: 30rem;
 }
 #aboutWrapper {
-  background: url(../images/about_image.jpg);
+  background: url(../images/about_image.webp);
 }
 #aboutWrapper .container {
   gap: 190rem;
@@ -703,7 +703,7 @@ footer .hseBlock {
   height: 805rem;
 }
 .fragmentAboutBlock {
-  background: url(../images/promo_contact_image.jpg);
+  background: url(../images/promo_contact_image.webp);
   margin: 40rem 20rem;
   height: 60vh;
   border-radius: 30rem;

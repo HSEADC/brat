@@ -1,0 +1,8 @@
+#styleWrapper {
+  background: url(../images/style.webp);
+  width: 1400rem;
+  height: 96vh;
+  border-radius: 30rem;
+  margin: 0 auto;
+  margin-top: 15rem;
+}

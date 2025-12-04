@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REWAVE Заглушка</title>
+
+    <meta
+      name="description"
+      content="REWAVE это цифровой архив звуков 1980–2000 годов, музей памяти, которая звучит: шум кассет, гул старых телевизоров, сигналы модемов."
+    />
+
+    <meta
+      property="og:title"
+      content="REWAVE, архив ностальгических звуков 1980–2000, скоро музей будет во всех домах"
+    />
+    <meta
+      property="og:description"
+      content="Музей звука о том, как звучало прошлое: скоро у вас"
+    />
+    <meta
+      property="og:image"
+      content="https://hseadc.github.io/brat/images/og-index.webp"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://hseadc.github.io/brat/pages/plug.html"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="REWAVE, архив ностальгических звуков 1980–2000"
+    />
+    <meta
+      name="twitter:description"
+      content="Цифровой музей звука о технологиях конца двадцатого века."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hseadc.github.io/brat/images/og-index.webp"
+    />
+
+    <link rel="stylesheet" href="../styles/style.css" />
+  </head>
+  <body id="wrapper">
+    <div id="plugWrapper">
+      <div class="vhsNoiseLayer"></div>
+      <div class="vhsScanlines"></div>
+      <div class="vhsGlitchBar"></div>
+      <div class="container">
+        <div class="headerContainer">
+          <div class="logo">
+            <a href="../index.html"
+              ><img src="../images/logo.svg" alt="logo"
+            /></a>
+          </div>
+          <div class="navBlock">
+            <div class="navigation">
+              <a href="about.html">О музее</a>
+              <a href="categories.html">Категории</a>
+              <a href="">Истории</a>
+              <a href="">Капсулы годов</a>
+            </div>
+            <div class="socialMedia">
+              <a href="https://t.me/rewavehse" target="_blank">Telegram |</a>
+              <a href="https://vk.com/rewavehse" target="_blank">VK</a>
+            </div>
+          </div>
+        </div>
+        <div class="infoContainer">
+          <h1 class="title">Архив просыпается...</h1>
+          <p class="subtitle">
+            Щелчки кассет, шорох бумаги, гудки старых телефонов. <br />Мы
+            собираем звуки, чтобы вернуть тишине голос.
+          </p>
+        </div>
+        <div class="formContainer">
+          <p class="formInfo">
+            Оставь свой адрес и мы отправим тебе сигнал, <br />когда архив
+            REWAVE откроется
+          </p>
+          <form
+            id="form"
+            action="https://formspree.io/f/xrbyrdbn"
+            method="POST"
+          >
+            <input type="email" name="email" placeholder="Введи свой email" />
+            <button id="button">
+              <img
+                src="../images/icon_white.svg"
+                alt="icon_playback"
+              />Отправить
+            </button>
+            <p id="formStatus"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var form = document.getElementById("form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("formStatus");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Cпасибо! Архив скоро откроется!";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    "Возникла какая-то проблема. Попробуйте еще раз!";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.innerHTML =
+              "Возникла какая-то проблема. Попробуйте еще раз!";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+  </body>
+</html>

@@ -10,7 +10,8 @@ function createPage(template, filename) {
 const htmlPages = [
   createPage("./src/index.html", "./index.html"),
   createPage("./src/pages/about.html", "./pages/about.html"),
-  createPage("./src/pages/promo.html", "./pages/promo.html"),
+  createPage("./src/pages/plug.html", "./pages/plug.html"),
+  createPage("./src/pages/categories.html", "./pages/categories.html"),
 ];
 
 module.exports = htmlPages;
