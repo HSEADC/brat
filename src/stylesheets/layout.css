@@ -27,9 +27,10 @@ body {
 }
 #wrapper .headerContainer {
   display: flex;
-  border: 2rem solid #faf9f6;
+  /* border: 2rem solid #faf9f6; */
   border-radius: 10rem;
   padding: 20rem;
+  background-color: #3d7dff;
 }
 #wrapper .headerContainer .navBlock {
   display: flex;
@@ -568,11 +569,15 @@ footer .hseBlock {
 #aboutWrapper .container {
   gap: 190rem;
 }
-#aboutWrapper .formContainer {
+#aboutWrapper .formContainer,
+#categoryWrapper .formContainer,
+#homeTechWrapper .formContainer {
   align-items: center;
   text-align: center;
 }
-#aboutWrapper .formContainer .button {
+#aboutWrapper .formContainer .button,
+#categoryWrapper .formContainer .button,
+#homeTechWrapper .formContainer .button {
   width: 300rem;
   height: 45rem;
   background-color: none;
@@ -588,7 +593,9 @@ footer .hseBlock {
   gap: 2rem;
   transition: all ease 0.8s;
 }
-#aboutWrapper .formContainer .button:hover {
+#aboutWrapper .formContainer .button:hover,
+#categoryWrapper .formContainer .button:hover,
+#homeTechWrapper .formContainer .button:hover {
   cursor: pointer;
   background-color: #1d68fc;
   box-shadow: 0 0 10rem #1d68fc;
