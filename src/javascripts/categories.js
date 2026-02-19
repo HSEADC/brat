@@ -1,6 +1,5 @@
 import Airtable from "airtable"
-const token = 
-'patZigvXMUxxtCm9B.800fe155635a29733a0f2a963f7d5b7a57c08287a24d5043485d520aa6323068'
+const token = 'patZigvXMUxxtCm9B.add5013feb7015ebbfaf486d9247ed83e02a37a874e03ec81f39946421bb0f1f'
 
 Airtable.configure({
     endpointUrl: 'https://api.airtable.com',
@@ -8,64 +7,91 @@ Airtable.configure({
 });
 var base = Airtable.base('apps8aTTafAVgvrSV');
 
-async function getCategories() {
-  try {
-    const records = await base('Articles').select({
-      maxRecords: 100,
-    }).firstPage();
+let content
+getArtcilesTeasers().then((data) => {
+  content = data
 
-    return records.map(record => ({
-      id: record.id,
-      title: record.get('Title') || 'Без названия',
-      description: record.get('Description') || '',
-      tags: record.get('Tags') || [],
-      link: record.get('URL') || '#',
-      image: record.get('Image')?.[0]?.url || ''
-    }));
-  } catch (error) {
-    console.error("Ошибка при получении данных:", error);
-    return [];
-  }
+  createArticlesTeasersCards(content)
+})
+
+function getArtcilesTeasers() {
+  return new Promise((resolve, reject) => {
+    const content = []
+
+    base('Articles')
+      .select({
+        maxRecords: 100
+      })
+      .firstPage()
+      .then((result) => {
+        result.forEach((record) => {
+          content.push({
+            id: record.id,
+            title: record.fields['Title'],
+            description: record.fields['Summary'],
+            tags: record.fields['Tags'],
+            link: record.fields['URL'],
+            image: record.fields['Image']
+          })
+        })
+        resolve(content)
+      })
+  })
 }
 
 function createArticlesTeasersCards(content) {
-  const container = document.querySelector('.O_Articles');
+  const container = document.querySelector('.cards_block');
   if (!container) return;
 
   container.innerHTML = '';
 
+  const cardLine = document.createElement('div');
+  cardLine.classList.add('card_line');
+  container.appendChild(cardLine);
+
   content.forEach((stroke) => {
     let { title, description, tags, link, image } = stroke;
 
-    const articleHeader = document.createElement('h3');
-    articleHeader.classList.add('A_IndexH3');
-    articleHeader.innerText = title;
-
-    const articleTags = document.createElement('div');
-    articleTags.classList.add('C_IndexSectionCardTags');
-
-    tags.forEach((tag) => {
-      const articleTag = document.createElement('span');
-      articleTag.classList.add('A_IndexSectionCardTag');
-      articleTag.innerText = tag;
-      articleTags.appendChild(articleTag);
-    });
-
-    const articleCard = document.createElement('a');
-    articleCard.classList.add('O_IndexSectionCard');
-    articleCard.href = link;
+    const card = document.createElement('div');
+    card.classList.add('card');
     
     if (image) {
-        articleCard.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${image})`;
+      card.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${image})`;
     }
 
-    articleCard.appendChild(articleHeader);
-    articleCard.appendChild(articleTags);
+    const info = document.createElement('div');
+    info.classList.add('info');
 
-    container.appendChild(articleCard);
+    const tagDiv = document.createElement('div');
+    tagDiv.classList.add('tag');
+    tagDiv.innerText = tags[0] || '';
+
+    const titleDiv = document.createElement('div');
+    titleDiv.classList.add('title_card');
+    titleDiv.innerText = title;
+
+    const descDiv = document.createElement('div');
+    descDiv.classList.add('description');
+    descDiv.innerText = description;
+
+    const btnDiv = document.createElement('div');
+    btnDiv.classList.add('button_more');
+    const btnLink = document.createElement('a');
+    btnLink.href = link;
+    btnLink.innerText = 'Подробнее';
+    btnDiv.appendChild(btnLink);
+
+    info.appendChild(tagDiv);
+    info.appendChild(titleDiv);
+    info.appendChild(descDiv);
+    info.appendChild(btnDiv);
+    card.appendChild(info);
+    cardLine.appendChild(card);
   });
 }
 
-getCategories().then(data => {
-    createArticlesTeasersCards(data);
+document.addEventListener('DOMContentLoaded', () => {
+    getCategories().then(data => {
+        createArticlesTeasersCards(data);
+    });
 });
