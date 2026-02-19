@@ -1,0 +1,206 @@
+/* ==========================================================================
+   1. БАЗОВЫЕ НАСТРОЙКИ (Сохранены из твоего оригинала)
+   ========================================================================== */
+html {
+  font-size: calc(1vw / 14.4);
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #faf9f6;
+  font-family: "Suiss Intl", Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+#plugWrapper, #promoWrapper, #aboutWrapper {
+  max-width: 1400rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#wrapper .container {
+  padding: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 190rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   2. ЭФФЕКТЫ И АНИМАЦИИ (VHS, Глитчи)
+   ========================================================================== */
+.vhsNoiseWrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vhsNoiseLayer {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.15) 0px, transparent 2px);
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  animation: noiseMove 0.18s steps(2) infinite;
+  z-index: 2;
+  filter: blur(0.4px) contrast(140%);
+}
+.vhsScanlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 2px);
+  background-size: 100% 2px;
+  opacity: 0.4;
+  z-index: 3;
+  animation: scanShift 4s linear infinite;
+}
+@keyframes noiseMove {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-10%, 5%); }
+  40% { transform: translate(15%, -10%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ==========================================================================
+   3. НАВИГАЦИЯ И ФУТЕР
+   ========================================================================== */
+#wrapper .headerContainer {
+  display: flex;
+  border-radius: 10rem;
+  padding: 20rem;
+  background-color: #3d7dff;
+}
+#wrapper .headerContainer a {
+  font-size: 20rem;
+  text-decoration: none;
+  color: #faf9f6;
+  transition: 0.8s;
+}
+footer {
+  height: 20vh;
+  background-color: #3d7dff;
+  margin-bottom: 40rem;
+  border-radius: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rem;
+}
+
+/* ==========================================================================
+   4. АТОМАРНАЯ СИСТЕМА ТЕСТА (Наше новое)
+   ========================================================================== */
+
+/* Атомы */
+.A_NumberOfQuestion {
+  font-family: 'Magistral', sans-serif;
+  color: #3d7dff;
+  font-size: 24rem;
+}
+.A_TestQuestion {
+  font-family: 'Magistral', sans-serif;
+  color: #faf9f6;
+  font-size: 50rem;
+  margin-top: 20rem;
+  line-height: 1.1;
+}
+.A_TestAnswerText {
+  font-family: 'Suiss Intl', sans-serif;
+  font-size: 20rem;
+  color: #faf9f6;
+}
+.A_TestCheckbox { display: none; }
+
+/* Кнопки теста */
+.button-primary {
+  width: 250rem;
+  height: 45rem;
+  background-color: #3d7dff;
+  border-radius: 8rem;
+  border: 2rem solid #faf9f6;
+  color: #faf9f6;
+  font-size: 16rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.8s;
+}
+.button-primary:hover {
+  background-color: #1d68fc;
+  box-shadow: 0 0 10rem #1d68fc;
+}
+
+/* Молекулы */
+.M_TestAnswer {
+  display: flex;
+  align-items: center;
+  gap: 15rem;
+  border: 2rem solid #faf9f6;
+  border-radius: 12rem;
+  padding: 20rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.M_TestAnswer:hover {
+  background: rgba(250, 249, 246, 0.1);
+  border-color: #3d7dff;
+}
+
+/* Организмы */
+.O_Test { width: 100%; }
+.O_TestContent { display: flex; gap: 40rem; margin-top: 50rem; }
+.C_TestAnswerMessages { flex-grow: 1; display: flex; flex-direction: column; gap: 15rem; }
+
+#qImageCard {
+  flex-shrink: 0;
+  width: 350rem;
+  height: 450rem;
+  border-radius: 30rem;
+  background-size: cover;
+  transition: background 0.5s ease;
+}
+
+/* Экран результатов */
+.O_Result {
+  width: 100%;
+  min-height: 400rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   5. ПРОМО-БЛОКИ (Твои карточки музея)
+   ========================================================================== */
+.promoSoundBlock .cardText {
+  background-color: #3d7dff;
+  height: 320rem;
+  width: 450rem;
+  border-radius: 30rem;
+  padding: 30rem;
+  color: #faf9f6;
+}
+.promoArchiveBlock .archiveCard {
+  width: 450rem;
+  height: 500rem;
+  border-radius: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.promoArchiveBlock .orange { background-color: #ff9e45; }
+.promoArchiveBlock .blue { background-color: #3d7dff; }
+.promoArchiveBlock .purple { background-color: #9a5cff; }
+
+/* Твой фон для секции теста */
+#homeTechWrapper {
+  background: url(../images/promo_background.webp);
+  background-size: cover;
+}
