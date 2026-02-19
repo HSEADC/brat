@@ -125,23 +125,23 @@ table {
 
 @font-face {
   font-family: "Magistral";
-  src: url(../4154e5e3d854d2fd8cd7.ttf), url(../4ca4039b269def5e55c7.woff),
-    url(../118ee451f421f04876cf.woff2);
+  src: url(../images/Magistral-Medium.ttf), url(../images/Magistral-Medium.woff),
+    url(../images/Magistral-Medium.woff2);
   font-weight: 500;
 }
 @font-face {
   font-family: "Suiss Intl";
-  src: url(../6c8371cb596fb9d35b56.otf);
+  src: url(../images/SuisseIntl-Light.otf);
   font-weight: 300;
 }
 @font-face {
   font-family: "Suiss Intl";
-  src: url(../b248914e0a53493d03f0.otf);
+  src: url(../images/SuisseIntl-Regular.otf);
   font-weight: 400;
 }
 @font-face {
   font-family: "Suiss Intl";
-  src: url(../30ad3a64be8c976d9a31.otf);
+  src: url(../images/SuisseIntl-Book.otf);
   font-weight: 500;
 }
 
@@ -410,7 +410,7 @@ body {
   }
 }
 #promoWrapper {
-  background: url(../c82c8dcb2cb917b30368.webp);
+  background: url(../images/promo_background.webp);
 }
 #wrapper .infoContainer .promoTitle {
   line-height: 0.8;
@@ -533,7 +533,7 @@ footer,
 .fragmentBlock {
   margin: 20rem;
   height: 80vh;
-  background: url(../368f21f02de1ab1bd6e8.webp);
+  background: url(../images/plug_background.webp);
   border-radius: 30rem;
   display: flex;
   flex-direction: column;
@@ -709,7 +709,7 @@ footer .hseBlock {
   margin-top: 30rem;
 }
 #aboutWrapper {
-  background: url(../daa963ff892c82859051.webp);
+  background: url(../images/about_image.webp);
 }
 #aboutWrapper .container {
   gap: 190rem;
@@ -855,7 +855,7 @@ footer .hseBlock {
   height: 805rem;
 }
 .fragmentAboutBlock {
-  background: url(../11b9fe4a17146ff8c4c2.webp);
+  background: url(../images/promo_contact_image.webp);
   margin: 40rem 20rem;
   height: 60vh;
   border-radius: 30rem;
@@ -1072,7 +1072,7 @@ html, body {
 }
 
 #categoryWrapper {
-  background: url(../dd2971b4aa4a013e1034.jpg);
+  background: url(../images/category_back.jpg);
   width: 1400rem;
   height: 96vh;
   border-radius: 30rem;
@@ -1149,38 +1149,38 @@ html, body {
   color: #faf9f6;
 }
 .card_1 {
-  background: url(../dc990cb07961b34f5410.jpg);
+  background: url(../images/card_1.jpg);
 }
 .card_2 {
-  background: url(../28628db4d2fadea715fa.jpg);
+  background: url(../images/card_2.jpg);
 }
 .card_3 {
-  background: url(../acdd083614a8f685e27d.jpg);
+  background: url(../images/card_3.jpg);
 }
 .card_4 {
-  background: url(../f4365de56e64c8162d1a.jpg);
+  background: url(../images/card_4.jpg);
 }
 .card_5 {
-  background: url(../cb8a7076fec3f3b462dc.jpg);
+  background: url(../images/card_5.jpg);
 }
 .card_6 {
-  background: url(../7376b93485d292438d96.jpg);
+  background: url(../images/card_6.jpg);
 }
 .card_7 {
-  background: url(../064cd2eb029468129dbd.jpg);
+  background: url(../images/card_7.jpg);
 }
 .card_8 {
-  background: url(../ede7c5e2e5b64e1c4753.jpg);
+  background: url(../images/card_8.jpg);
 }
 .card_9 {
-  background: url(../62b5a634ca330475e6bf.jpg);
+  background: url(../images/card_9.jpg);
 }
 footer {
   margin-top: 40rem;
 }
 
 #homeTechWrapper {
-  background: url(../167267391ceac816a0ed.jpg);
+  background: url(../images/home_block_back.jpg);
   width: 1400rem;
   height: 96vh;
   border-radius: 30rem;
