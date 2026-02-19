@@ -10,7 +10,14 @@ function createPage(template, filename) {
 const htmlPages = [
   createPage("./src/index.html", "./index.html"),
   createPage("./src/pages/about.html", "./pages/about.html"),
-  createPage("./src/pages/promo.html", "./pages/promo.html"),
+  createPage("./src/pages/plug.html", "./pages/plug.html"),
+  createPage("./src/pages/categories.html", "./pages/categories.html"),
+  createPage(
+    "./src/pages/categories/home_technologies.html",
+    "./pages/categories/home_technologies.html"
+  ),
+  createPage("./src/pages/styleguide.html", "./pages/styleguide.html"),
+  createPage("./src/pages/tests.html", "./pages/tests.html"),
 ];
 
 module.exports = htmlPages;

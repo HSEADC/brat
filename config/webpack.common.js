@@ -1,14 +1,17 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const htmlPages = require("./webpack.pages.js");
 
 module.exports = {
   entry: "./src/javascripts/index.js",
+  
   output: {
-    path: path.resolve(".", "docs"),
-    filename: "[name].js",
+    path: path.resolve(__dirname, "../docs"),
+    filename: "javascripts/index.js", 
     clean: true,
   },
+
   module: {
     rules: [
       {
@@ -21,18 +24,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(png|jpg|jpeg|svg|webp|gif)$/,
-        type: "asset/resource",
+        test: /\.(png|jpg|jpeg|svg|webp|gif|ttf|otf|woff|woff2)$/,
+        type: 'asset/resource',
         generator: {
-          filename: "images/[hash][ext][query]",
-        },
-      },
-      {
-        test: /\.(ttf|otf|woff|woff2)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "fonts/[hash][ext][query]",
-        },
+          emit: false
+        }
       },
       {
         test: /\.(js|jsx)$/i,
@@ -46,5 +42,28 @@ module.exports = {
       },
     ],
   },
-  plugins: [...htmlPages, new MiniCssExtractPlugin()],
+
+  plugins: [
+    ...htmlPages, 
+    new MiniCssExtractPlugin({
+      filename: "stylesheets/layout.css", 
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/images", to: "images", noErrorOnMissing: true },
+        { from: "src/stylesheets", to: "stylesheets", noErrorOnMissing: true },
+        { from: "src/javascripts", to: "javascripts", noErrorOnMissing: true },
+        { from: "src/audio", to: "audio", noErrorOnMissing: true },
+        { from: "src/fonts", to: "fonts", noErrorOnMissing: true },
+        { 
+          from: "src/pages", 
+          to: "pages", 
+          noErrorOnMissing: true,
+          globOptions: {
+            ignore: ["**/*.html"], 
+          },
+        },
+      ],
+    }),
+  ],
 };
